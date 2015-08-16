@@ -15,6 +15,46 @@
          <li class="list-group-item">
           <%= fave.dish.name %> at <%= fave.venue.name %></li>
         <% end %>
+        <li class="list-group-item">
+            <form action="/create_favorite" method="post">
+              <!-- Hidden input for authenticity token to protect from forgery -->
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+              <!-- Label and input for dish -->
+              <div class="form-group">
+                <label for="dish" class="control-label">
+                  Dish
+                </label>
+                 <%= select_tag(:dish_id, options_from_collection_for_select(Dish.all, :id, :name, @favorite.dish_id), :class => "form-control") %>
+              </div>
+
+              <div class="form-group">
+                <label for="venue" class="control-label">
+                  Venue
+                </label>
+                 <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, @favorite.venue_id), :class => "form-control") %>
+              </div>
+
+              <div class="form-group">
+                <label for="notes" class="control-label">
+                  Notes
+                </label>
+                <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3" value="<%= @favorite.notes %>"></textarea>
+
+              </div>
+
+
+
+              <!-- Label and input for venue_id -->
+              <input name="user_id" type="hidden" value="<%= @user.id %>">
+
+              <button class="btn btn-success">
+                Create Dish
+              </button>
+              or
+              <a href="/cuisines">Cancel</a>
+            </form>
+          </li>
         </ul>
         </dd>
 
