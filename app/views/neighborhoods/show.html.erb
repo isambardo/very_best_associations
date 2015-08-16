@@ -50,7 +50,19 @@
               or
               <a href="/neighborhoods">Cancel</a>
             </form>
-          </li>
+           </li>
+          </ul>
+         </dd>
+
+
+          <dt>Favorites</dt>
+        <dd>
+          <% @neighborhood.favorites.each do |fave| %>
+         <li class="list-group-item">
+          <%= fave.dish.name %> at <%= fave.venue.name %> by <%= fave.user.username %></li>
+        <% end %>
+        </li>
+
         </ul>
     </dl>
     </dd>
