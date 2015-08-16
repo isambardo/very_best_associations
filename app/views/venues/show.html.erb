@@ -13,6 +13,16 @@
 
       <dt>Neighborhood</dt>
       <dd><%= @venue.neighborhood.name %></dd>
+      <ul class="list-group">
+        <dt>Favorites</dt>
+        <dd>
+
+        <% @venue.favorites.each do |fave| %>
+         <li class="list-group-item">
+          <%= fave.dish.name %> by <%= fave.user.username %></li>
+        <% end %>
+        </ul>
+        </dd>
 
     </dl>
 

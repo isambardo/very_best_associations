@@ -7,6 +7,16 @@
     <dl class="dl-horizontal">
       <dt>Username</dt>
       <dd><%= @user.username %></dd>
+      <ul class="list-group">
+        <dt>Favorites</dt>
+        <dd>
+
+        <% @user.favorites.each do |fave| %>
+         <li class="list-group-item">
+          <%= fave.dish.name %> at <%= fave.venue.name %></li>
+        <% end %>
+        </ul>
+        </dd>
 
     </dl>
 

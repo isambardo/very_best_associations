@@ -10,6 +10,16 @@
 
       <dt>City</dt>
       <dd><%= @neighborhood.city %></dd>
+        <ul class="list-group">
+        <dt>Venues</dt>
+        <dd>
+
+        <% @neighborhood.venues.each do |joint| %>
+         <li class="list-group-item">
+          <%= joint.name %></li>
+        <% end %>
+        </ul>
+        </dd>
 
     </dl>
 
