@@ -5,6 +5,7 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
+    @favorite =Favorite.new
   end
 
   def new
